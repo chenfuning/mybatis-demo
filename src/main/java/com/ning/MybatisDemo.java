@@ -28,7 +28,7 @@ public class MybatisDemo {
         /******************************分割线******************************/
         SqlSession sqlSession = sqlSessionFactory.openSession();
         //SqlSession 提供了在数据库执行 SQL 命令所需的所有方法。
-        // 获取map
+        // 获取mapper
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         System.out.println(mapper.selectById(1L).getName());
         sqlSession.commit();
