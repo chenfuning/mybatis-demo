@@ -33,6 +33,9 @@ public class MybatisDemo {
         System.out.println(mapper.selectById(1L).getName());
         sqlSession.commit();
         sqlSession.close();
-
+        // 关闭一个sqlsession（查询过得数据会保存在二级缓存中），再开启新的sqlsession查询二级缓存的内容
+        SqlSession sqlSession2 = sqlSessionFactory.openSession();
+        UserMapper mapper1 = sqlSession2.getMapper(UserMapper.class);
+        System.out.println(mapper1.selectById(1L).getName());
     }
 }
